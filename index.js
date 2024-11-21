@@ -1,14 +1,9 @@
 document.getElementById("arch").addEventListener("click", function (e) {
   e.preventDefault(); // Prevent the default link behavior
-
-  // Hide all content on the page
   document.body.innerHTML = "";
-
-  // Set the background color to black
   document.body.style.backgroundColor = "black";
-  document.body.style.overflow = "hidden"; // Prevent scrolling
+  document.body.style.overflow = "hidden";
 
-  // Create a container for the stars
   const starContainer = document.createElement("div");
   starContainer.id = "star-container";
   starContainer.style.position = "absolute";
@@ -19,7 +14,6 @@ document.getElementById("arch").addEventListener("click", function (e) {
   starContainer.style.zIndex = "-1";
   document.body.appendChild(starContainer);
 
-  // Generate moving stars
   function createStar() {
     const star = document.createElement("div");
     star.className = "star";
@@ -34,17 +28,12 @@ document.getElementById("arch").addEventListener("click", function (e) {
     }s linear infinite`;
 
     starContainer.appendChild(star);
-
-    // Remove star after animation
     setTimeout(() => {
       star.remove();
     }, 5000);
   }
-
-  // Add stars at intervals
   setInterval(createStar, 100);
 
-  // Add "Arch is the best." text with typing animation
   const textContainer = document.createElement("div");
   textContainer.style.position = "absolute";
   textContainer.style.top = "50%";
@@ -70,7 +59,6 @@ document.getElementById("arch").addEventListener("click", function (e) {
   typeText();
 });
 
-// CSS for stars
 const style = document.createElement("style");
 style.innerHTML = `
     @keyframes move-star {
